@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<br>
+<br>
+<%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3">
+      <%= render 'form', room: Room.new %>
+      <hr>
+      <% @rooms.each do |room|%>
+      <%= link_to room do%>
+        <div class="card mb-2">
+          <div class="card-body">
+            <%= room.name %>
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="col-9">
+      <% if @room.present? %>
+        <div class="chat-room">
+          <nav class="navbar navbar-light bg-light mb-4">
+            <div class="container-fluid">
+              <span class="navbar-brand" href="#"><%= @room.name %></span>
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  Hello, <%= current_user.name%>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <% @room.messages.each do |m|%>
+            <div class="message mb-2 <%= 'me' if m.user.id == current_user.id %>">
+              <div class="content-container">
+                <div class="content ">
+                  <%= m.content %>
+                </div>
+                <div class="author">
+                  <%= link_to m.user.name, user_path(m.user.id) %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+            <div class="chat-box">
+              <%= render 'messages/form', message: Message.new, room:@room %>
+            </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+  

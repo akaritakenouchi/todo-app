@@ -1,0 +1,31 @@
+.chat-room{
+    height: 100vh;
+    overflow-y: hidden; //ブロックレベル要素の内容が上下の境界からあふれた場合、どのように表示するのか
+    .message {
+        display: inline-block;
+        .content{
+            background-color: #eeeeee;
+            padding: 8px 16px ;
+            border-radius: 20px;
+        }
+        .auther {
+            font-size: 0.8rem;
+            color: #777777;
+            mr
+        }
+    }
+    .chat-box{
+        position: absolute;
+        bottom: 0;
+        padding: 20px;
+        width: calc(100% - 15px);
+        input[type=text]{
+            height: 45px;
+            font-size: 18px;
+            padding: 8px;
+        }
+        .btn{
+            height: 45px;
+        }
+    }
+}

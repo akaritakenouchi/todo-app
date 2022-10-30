@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+<%= link_to "ログイン", books_path %>
+<%= link_to "新規登録", new_user_registration_path %>
+<p>
+  <strong>Title:</strong>
+  <%= @book.title %>
+</p>
+
+<p>
+  <strong>Contents:</strong>
+  <%= @book.contents %>
+</p>
+
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Back', books_path %>

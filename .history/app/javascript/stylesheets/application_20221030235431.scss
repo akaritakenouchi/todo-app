@@ -1,0 +1,8 @@
+.chat-room{
+    height: 100%;
+    overflow-y: hidden; //ブロックレベル要素の内容が上下の境界からあふれた場合、どのように表示するのか
+    .chat-box{
+        position: absolute;
+        bottom: 0;
+    }
+}
